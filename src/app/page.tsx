@@ -1,103 +1,134 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import { useState } from 'react';
+import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen';
+import HomeScreen from './components/HomeScreen/HomeScreen';
+import QuestionTypeScreen from './components/QuestionTypeScreen/QuestionTypeScreen';
+import QuestionCard from './components/QuestionCard/QuestionCard';
+import EssayCard from './components/EssayCard/EssayCard';
+import ProgressScreen from './components/ProgressScreen/ProgressScreen';
+import { questionsData, essayQuestionsData } from './data/questions';
+import { useBackgroundMusic } from './hooks/useBackgroundMusic'; // ✅ hook import
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+const Index = () => {
+  const [currentScreen, setCurrentScreen] = useState('welcome');
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [selectedSubject, setSelectedSubject] = useState('');
+  const [selectedType, setSelectedType] = useState<'objective' | 'essay'>('objective');
+
+  useBackgroundMusic(); // ✅ enable background music
+
+  const handleGetStarted = () => setCurrentScreen('home');
+
+  const handleStartLearning = (subject: string) => {
+    setSelectedSubject(subject);
+    setCurrentScreen('questionType');
+  };
+
+  const handleSelectType = (type: 'objective' | 'essay') => {
+    setSelectedType(type);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setCurrentScreen(type === 'objective' ? 'question' : 'essay');
+  };
+
+  const handleAnswerQuestion = (isCorrect: boolean) => {
+    if (isCorrect) setScore(score + 1);
+    const currentSubjectQuestions = questionsData[selectedSubject as keyof typeof questionsData];
+    if (currentQuestionIndex < currentSubjectQuestions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      setCurrentScreen('progress');
+    }
+  };
+
+  const handleNextEssay = () => {
+    const currentSubjectQuestions = essayQuestionsData[selectedSubject as keyof typeof essayQuestionsData];
+    if (currentQuestionIndex < currentSubjectQuestions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      setCurrentScreen('progress');
+    }
+  };
+
+  const handleBackToHome = () => {
+    setCurrentScreen('home');
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedSubject('');
+    setSelectedType('objective');
+  };
+
+  const handleRetakeTest = () => {
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setCurrentScreen(selectedType === 'objective' ? 'question' : 'essay');
+  };
+
+  const renderScreen = () => {
+    switch (currentScreen) {
+      case 'welcome':
+        return <WelcomeScreen onGetStarted={handleGetStarted} />;
+      case 'home':
+        return <HomeScreen onStartLearning={handleStartLearning} />;
+      case 'questionType':
+        return (
+          <QuestionTypeScreen
+            selectedSubject={selectedSubject}
+            onSelectType={handleSelectType}
+            onBackToHome={handleBackToHome}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+        );
+      case 'question': {
+        const questions = questionsData[selectedSubject as keyof typeof questionsData];
+        return (
+          <QuestionCard
+            question={questions[currentQuestionIndex]}
+            onAnswer={handleAnswerQuestion}
+            questionNumber={currentQuestionIndex + 1}
+            totalQuestions={questions.length}
+            subject={selectedSubject}
+            onBackToHome={handleBackToHome}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+        );
+      }
+      case 'essay': {
+        const questions = essayQuestionsData[selectedSubject as keyof typeof essayQuestionsData];
+        return (
+          <EssayCard
+            question={questions[currentQuestionIndex]}
+            onNext={handleNextEssay}
+            questionNumber={currentQuestionIndex + 1}
+            totalQuestions={questions.length}
+            subject={selectedSubject}
+            onBackToHome={handleBackToHome}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+        );
+      }
+      case 'progress': {
+        const total =
+          selectedType === 'objective'
+            ? questionsData[selectedSubject as keyof typeof questionsData].length
+            : essayQuestionsData[selectedSubject as keyof typeof essayQuestionsData].length;
+
+        return (
+          <ProgressScreen
+            score={selectedType === 'objective' ? score : total}
+            totalQuestions={total}
+            subject={selectedSubject}
+            onBackToHome={handleBackToHome}
+            onRetakeTest={handleRetakeTest}
+            questionType={selectedType}
+          />
+        );
+      }
+      default:
+        return <WelcomeScreen onGetStarted={handleGetStarted} />;
+    }
+  };
+
+  return <div className="min-h-screen">{renderScreen()}</div>;
+};
+
+export default Index;
