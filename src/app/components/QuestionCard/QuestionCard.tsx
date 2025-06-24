@@ -36,8 +36,8 @@ const QuestionCard = ({
   const speakText = (text: string) => {
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.8;
-      utterance.pitch = 1.2;
+      utterance.rate = 1.1; // Increased from 0.8 to 1.1 for better speed
+      utterance.pitch = 1.1; // Slightly reduced pitch from 1.2 to 1.1 for more natural sound
       speechSynthesis.speak(utterance);
     }
   };
