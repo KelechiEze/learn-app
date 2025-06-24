@@ -42,7 +42,7 @@ const HomeScreen = ({ onStartLearning }: HomeScreenProps) => {
     { name: 'Mathematics', icon: Calculator, color: '#00C49A' },
     { name: 'Verbal Reasoning', icon: Brain, color: '#FF6B6B' },
     { name: 'French', icon: Globe, color: '#FFC107' },
-    { name: 'Literature', icon: BookText, color: '#845EC2' },
+    { name: 'History', icon: BookText, color: '#845EC2' },
     { name: 'CRS', icon: Church, color: '#FF5E78' },
     { name: 'Vocational', icon: Wrench, color: '#1DD1A1' }
   ];
