@@ -70,7 +70,7 @@ const HomeScreen = ({ onStartLearning }: HomeScreenProps) => {
             />
           </div>
           <h1 className="main-title">
-            Welcome to <span className="gradient-text">Fun Learning!</span>
+            Welcome Tehila to <span className="gradient-text">Fun Learning!</span>
           </h1>
           <p className="subtitle">
             Choose a subject and let&apos;s start your amazing learning adventure!{' '}
