@@ -482,115 +482,189 @@ export const essayQuestionsData = {
       answer: "Patterns repeat in order. Like red, blue, red, blue. Or 2, 4, 6, 8. Finding patterns helps us guess what comes next!"
     }
   ],
-  Science: [
+  "Verbal Reasoning": [
     {
       id: 1,
-      question: "What are animals?",
-      answer: "Animals are living things that can move around. Dogs, cats, birds, and fish are all animals. They need food and water to live!"
+      question: "What is verbal reasoning?",
+      answer: "Verbal reasoning is solving problems using words and language. It helps us understand relationships between words and ideas."
     },
     {
       id: 2,
-      question: "What are plants?",
-      answer: "Plants are living things that grow from the ground. Trees, flowers, and grass are plants. They need water and sunlight to grow!"
+      question: "What is a synonym?",
+      answer: "A synonym is a word that means the same or nearly the same as another word. Like 'happy' and 'joyful'."
     },
     {
       id: 3,
-      question: "What is the sun?",
-      answer: "The sun is a big, bright star that gives us light and warmth. It helps plants grow and makes daytime bright!"
+      question: "What is an antonym?",
+      answer: "An antonym is a word that means the opposite of another word. Like 'hot' and 'cold' or 'up' and 'down'."
     },
     {
       id: 4,
-      question: "What is water?",
-      answer: "Water is what we drink to stay healthy. It can be liquid like in a glass, solid like ice, or gas like steam!"
+      question: "What is a pattern in words?",
+      answer: "A word pattern is when words follow a certain order or sequence. Like cat, bat, hat (all ending with -at)."
     },
     {
       id: 5,
-      question: "What are the five senses?",
-      answer: "Our five senses help us learn about the world. We see with our eyes, hear with our ears, smell with our nose, taste with our tongue, and touch with our hands!"
+      question: "What is logical thinking?",
+      answer: "Logical thinking is solving problems step by step using reason. Like figuring out 'If all birds have wings, and a penguin is a bird, then...'"
     },
     {
       id: 6,
-      question: "What is weather?",
-      answer: "Weather is what it's like outside. It can be sunny, rainy, cloudy, or snowy. We look outside to see the weather!"
+      question: "What is a category?",
+      answer: "A category is a group of similar things. Like fruits: apple, banana, orange. Or colors: red, blue, green."
     },
     {
       id: 7,
-      question: "What are rocks?",
-      answer: "Rocks are hard things from the earth. They can be big like mountains or small like pebbles. Some are smooth, some are rough!"
+      question: "What is word association?",
+      answer: "Word association is connecting words that go together. Like 'dog' and 'bone', or 'rain' and 'umbrella'."
     }
   ],
-  Geography: [
+  French: [
     {
       id: 1,
-      question: "What is a map?",
-      answer: "A map is a picture that shows us where places are. It helps us find our way and see where countries, cities, and roads are!"
+      question: "What is French?",
+      answer: "French is a language spoken in France and many other countries. It sounds beautiful and is fun to learn!"
     },
     {
       id: 2,
-      question: "What is a country?",
-      answer: "A country is a big area of land where people live together. America, Canada, and Mexico are countries. Each has its own rules!"
+      question: "Why learn French?",
+      answer: "Learning French helps us talk to people from France and other French-speaking places. It's useful for travel and jobs!"
     },
     {
       id: 3,
-      question: "What are mountains?",
-      answer: "Mountains are very tall pieces of land that go high up into the sky. They have snow on top and are fun to look at!"
+      question: "What are some basic French words?",
+      answer: "Basic French words include: Bonjour (Hello), Merci (Thank you), Oui (Yes), Non (No), and Au revoir (Goodbye)."
     },
     {
       id: 4,
-      question: "What is an ocean?",
-      answer: "An ocean is a huge area of salty water. Fish, whales, and dolphins live there. It's much bigger than a lake or river!"
+      question: "How is French different from English?",
+      answer: "French has different words and sounds. Some words are similar (like 'restaurant'), but many are different (like 'chien' for dog)."
     },
     {
       id: 5,
-      question: "What is a city?",
-      answer: "A city is a place where many people live close together. It has lots of buildings, stores, and roads. Cities are busy places!"
+      question: "What are French numbers 1-5?",
+      answer: "French numbers 1-5 are: un (1), deux (2), trois (3), quatre (4), cinq (5). They're important for counting!"
     },
     {
       id: 6,
-      question: "What is a river?",
-      answer: "A river is water that flows from one place to another. It starts in mountains and flows to the ocean. Fish live in rivers!"
+      question: "What are French colors?",
+      answer: "Some French colors are: rouge (red), bleu (blue), vert (green), jaune (yellow), and noir (black)."
     },
     {
       id: 7,
-      question: "What is a forest?",
-      answer: "A forest is a place with lots of trees growing together. Animals like bears, deer, and birds live in forests!"
+      question: "What is French culture?",
+      answer: "French culture includes delicious food like croissants, famous places like the Eiffel Tower, and beautiful art and music."
     }
   ],
-  History: [
+  Literature: [
     {
       id: 1,
-      question: "What is history?",
-      answer: "History is learning about things that happened long ago, before we were born. It tells us about old times and people!"
+      question: "What is literature?",
+      answer: "Literature is written works like stories, poems, and plays. It helps us imagine and learn about different worlds!"
     },
     {
       id: 2,
-      question: "What is a castle?",
-      answer: "A castle is a big, strong building where kings and queens used to live long ago. They had tall walls to keep everyone safe!"
+      question: "Why read stories?",
+      answer: "Stories teach us lessons, let us imagine new places, and help us understand different people and feelings."
     },
     {
       id: 3,
-      question: "What were dinosaurs?",
-      answer: "Dinosaurs were huge animals that lived on Earth millions of years ago, before people existed. Some were big, some small, and they're gone now!"
+      question: "What is a fairy tale?",
+      answer: "A fairy tale is a magical story with princes, princesses, or talking animals. They often teach good lessons!"
     },
     {
       id: 4,
-      question: "What is a pyramid?",
-      answer: "A pyramid is a big triangle-shaped building made of stone. People in Egypt built them long ago as special places for their kings!"
+      question: "What is a poem?",
+      answer: "A poem is writing that uses beautiful words and sounds. Poems can rhyme or have special rhythms that make them fun to say."
     },
     {
       id: 5,
-      question: "What were knights?",
-      answer: "Knights were brave soldiers who lived long ago. They wore heavy metal clothes called armor and rode horses to protect people!"
+      question: "What is a character in a story?",
+      answer: "A character is a person or animal in a story. Like Cinderella, the Big Bad Wolf, or Harry Potter."
     },
     {
       id: 6,
-      question: "What is the past?",
-      answer: "The past is time that already happened. Yesterday, last week, and when your grandparents were young are all in the past!"
+      question: "What is a moral in a story?",
+      answer: "A moral is the lesson a story teaches. Like 'slow and steady wins the race' from The Tortoise and the Hare."
     },
     {
       id: 7,
-      question: "What are old and new?",
-      answer: "Old things existed a long time ago, like old cars or old houses. New things were made recently, like your new toys!"
+      question: "Why are books important?",
+      answer: "Books are important because they teach us new things, take us on adventures, and help us understand the world better."
+    }
+  ],
+  CRS: [
+    {
+      id: 1,
+      question: "What is CRS?",
+      answer: "CRS stands for Christian Religious Studies. It teaches us about the Bible, Jesus, and how to live good lives."
+    },
+    {
+      id: 2,
+      question: "Who is Jesus?",
+      answer: "Jesus is God's son who came to Earth to teach us about love and save us from our mistakes."
+    },
+    {
+      id: 3,
+      question: "What is the Bible?",
+      answer: "The Bible is God's special book with stories about creation, Jesus, and how to live in ways that please God."
+    },
+    {
+      id: 4,
+      question: "What are the Ten Commandments?",
+      answer: "The Ten Commandments are important rules God gave us, like loving God and being kind to others."
+    },
+    {
+      id: 5,
+      question: "What is prayer?",
+      answer: "Prayer is talking to God. We can thank Him, ask for help, or tell Him about our day anytime!"
+    },
+    {
+      id: 6,
+      question: "What is love in Christianity?",
+      answer: "Christian love means caring for others like Jesus did - being kind, forgiving, and helping people in need."
+    },
+    {
+      id: 7,
+      question: "Why is Christmas important?",
+      answer: "Christmas celebrates Jesus' birthday - when God's son came to Earth as a baby to bring us love and salvation."
+    }
+  ],
+  Vocational: [
+    {
+      id: 1,
+      question: "What are vocational skills?",
+      answer: "Vocational skills are abilities needed for jobs, like cooking, fixing things, or using tools. They help us work!"
+    },
+    {
+      id: 2,
+      question: "Why learn vocational skills?",
+      answer: "Learning vocational skills helps us solve problems, take care of things, and maybe get good jobs when we grow up."
+    },
+    {
+      id: 3,
+      question: "What are tools?",
+      answer: "Tools are things we use to build or fix stuff. Like hammers for nails, screwdrivers for screws, and wrenches for bolts."
+    },
+    {
+      id: 4,
+      question: "What is cooking?",
+      answer: "Cooking is preparing food to eat. It's an important skill that keeps us healthy and lets us make tasty meals!"
+    },
+    {
+      id: 5,
+      question: "What is cleaning?",
+      answer: "Cleaning means making places neat and tidy. It's important for health and makes our spaces nice to be in."
+    },
+    {
+      id: 6,
+      question: "What is gardening?",
+      answer: "Gardening is growing plants, flowers, or food. It teaches us patience and how nature works."
+    },
+    {
+      id: 7,
+      question: "Why are jobs important?",
+      answer: "Jobs are important because they help people earn money, learn skills, and provide useful things for others."
     }
   ]
 };
