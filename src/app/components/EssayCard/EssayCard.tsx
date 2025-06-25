@@ -34,14 +34,21 @@ const EssayCard = ({
     if ('speechSynthesis' in window) {
       speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.7;
-      utterance.pitch = 1.3;
-      utterance.voice = speechSynthesis.getVoices().find(voice =>
-        voice.name.includes('Female') ||
-        voice.name.includes('female') ||
-        voice.name.includes('Google UK English Female') ||
-        voice.name.includes('Microsoft Zira')
-      ) || speechSynthesis.getVoices()[0];
+      utterance.rate = 0.6;
+      utterance.pitch = 1.4;
+
+      const voices = speechSynthesis.getVoices();
+      const femaleVoice = voices.find(voice =>
+        voice.name.toLowerCase().includes('female') ||
+        voice.name.toLowerCase().includes('woman') ||
+        voice.name.toLowerCase().includes('zira') ||
+        voice.name.toLowerCase().includes('hazel') ||
+        voice.name.toLowerCase().includes('karen') ||
+        voice.name.toLowerCase().includes('samantha') ||
+        (voice.name.toLowerCase().includes('google') && voice.name.toLowerCase().includes('female'))
+      );
+
+      utterance.voice = femaleVoice || voices.find(voice => voice.lang.includes('en')) || voices[0];
       speechSynthesis.speak(utterance);
     }
   };
@@ -78,9 +85,7 @@ const EssayCard = ({
           <div className="subject-badge">{subject} - Essays</div>
           <button
             className="speak-button"
-            onClick={() =>
-              speakText(showAnswer ? question.answer : question.question)
-            }
+            onClick={() => speakText(showAnswer ? question.answer : question.question)}
           >
             <Volume2 size={24} />
           </button>
